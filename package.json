@@ -1,6 +1,6 @@
 {
   "name": "nuxtblog-plugin-telegram-notify",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "文章发布后通过 Telegram Bot 推送通知到指定频道或群组",
   "author": "nuxtblog",
   "license": "MIT",
@@ -16,7 +16,9 @@
     "entry": "index.js",
     "capabilities": {
       "http": {
-        "allow": ["api.telegram.org"],
+        "allow": [
+          "api.telegram.org"
+        ],
         "timeout_ms": 10000
       }
     },
@@ -66,7 +68,11 @@
         "label": "Markdown 模式",
         "type": "select",
         "default": "Markdown",
-        "options": ["Markdown", "MarkdownV2", "HTML"],
+        "options": [
+          "Markdown",
+          "MarkdownV2",
+          "HTML"
+        ],
         "description": "Telegram 消息格式，MarkdownV2 支持更多语法但需转义特殊字符"
       }
     ]
