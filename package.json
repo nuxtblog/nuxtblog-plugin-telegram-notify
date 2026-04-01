@@ -1,0 +1,84 @@
+{
+  "name": "nuxtblog-plugin-telegram-notify",
+  "version": "0.1.0",
+  "description": "文章发布后通过 Telegram Bot 推送通知到指定频道或群组",
+  "author": "nuxtblog",
+  "license": "MIT",
+  "keywords": [
+    "telegram",
+    "notification",
+    "nuxtblog-plugin"
+  ],
+  "private": true,
+  "plugin": {
+    "title": "Telegram 通知",
+    "icon": "i-tabler-brand-telegram",
+    "entry": "index.js",
+    "capabilities": {
+      "http": {
+        "allow": ["api.telegram.org"],
+        "timeout_ms": 10000
+      }
+    },
+    "settings": [
+      {
+        "key": "bot_token",
+        "label": "Bot Token",
+        "type": "password",
+        "required": true,
+        "default": "",
+        "placeholder": "123456789:AABBccDDeeff...",
+        "description": "从 @BotFather 获取的 Bot Token"
+      },
+      {
+        "key": "chat_id",
+        "label": "Chat ID / Channel",
+        "type": "string",
+        "required": true,
+        "default": "",
+        "placeholder": "-1001234567890 或 @mychannel",
+        "description": "目标频道 ID（负数）或用户名（@channel）"
+      },
+      {
+        "key": "site_url",
+        "label": "博客地址",
+        "type": "string",
+        "default": "",
+        "placeholder": "https://myblog.com",
+        "description": "用于拼接文章链接（末尾不加斜杠）"
+      },
+      {
+        "key": "template",
+        "label": "消息模板",
+        "type": "textarea",
+        "default": "📝 *{title}*\n\n{excerpt}\n\n🔗 [阅读全文]({url})",
+        "description": "支持 {title}、{url}、{excerpt} 占位符，可使用 Telegram Markdown 格式"
+      },
+      {
+        "key": "notify_on_update",
+        "label": "更新时也推送",
+        "type": "boolean",
+        "default": false,
+        "description": "开启后，文章更新（已发布）时也会推送通知"
+      },
+      {
+        "key": "parse_mode",
+        "label": "Markdown 模式",
+        "type": "select",
+        "default": "Markdown",
+        "options": ["Markdown", "MarkdownV2", "HTML"],
+        "description": "Telegram 消息格式，MarkdownV2 支持更多语法但需转义特殊字符"
+      }
+    ]
+  },
+  "scripts": {
+    "build": "esbuild src/index.ts --bundle --platform=neutral --main-fields=browser,module,main --target=es2015 --outfile=index.js",
+    "build:watch": "esbuild src/index.ts --bundle --platform=neutral --main-fields=browser,module,main --target=es2015 --outfile=index.js --watch",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@nuxtblog/plugin-sdk": "^0.0.4",
+    "esbuild": "^0.27.4",
+    "typescript": "^6.0.2"
+  }
+}
