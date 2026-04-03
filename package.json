@@ -1,6 +1,6 @@
 {
   "name": "nuxtblog-plugin-telegram-notify",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "文章发布后通过 Telegram Bot 推送通知到指定频道或群组",
   "author": "nuxtblog",
   "license": "MIT",
@@ -13,7 +13,10 @@
   "plugin": {
     "title": "Telegram 通知",
     "icon": "i-tabler-brand-telegram",
-    "entry": "index.js",
+    "sdkVersion": "0.1.0",
+    "trust_level": "official",
+    "entry": "dist/index.js",
+    "activationEvents": ["onEvent:post.*"],
     "capabilities": {
       "http": {
         "allow": [
@@ -78,12 +81,12 @@
     ]
   },
   "scripts": {
-    "build": "esbuild src/index.ts --bundle --platform=neutral --main-fields=browser,module,main --target=es2015 --outfile=index.js",
-    "build:watch": "esbuild src/index.ts --bundle --platform=neutral --main-fields=browser,module,main --target=es2015 --outfile=index.js --watch",
+    "build": "esbuild src/index.ts --bundle --platform=neutral --format=cjs --main-fields=browser,module,main --target=es2015 --outfile=dist/index.js",
+    "build:watch": "esbuild src/index.ts --bundle --platform=neutral --format=cjs --main-fields=browser,module,main --target=es2015 --outfile=dist/index.js --watch",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
-    "@nuxtblog/plugin-sdk": "^0.0.4",
+    "@nuxtblog/plugin-sdk": "^0.1.0",
     "esbuild": "^0.27.4",
     "typescript": "^6.0.2"
   }
