@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@nuxtblog/plugin-sdk':
-        specifier: ^0.0.4
-        version: 0.0.4
+        specifier: ^0.1.0
+        version: 0.1.0
       esbuild:
         specifier: ^0.27.4
         version: 0.27.4
@@ -176,8 +176,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@nuxtblog/plugin-sdk@0.0.4':
-    resolution: {integrity: sha512-XOoHZCM9/PoRVlWl5eui9NcORCc5tEv1Ea1avwjSdV0mUKNlqS1smsAw4Hy//b7fldEza62JYIPEjR6chjxG6g==}
+  '@nuxtblog/plugin-sdk@0.1.0':
+    resolution: {integrity: sha512-eZrFpqBnzA/PiC1fTTcWYqCZwpH764O4r+aYbP2JmzsfRLzqTdKWuiCg35kcLIN+BadEMNhSZ8PF0zJ1OwiGQA==}
 
   esbuild@0.27.4:
     resolution: {integrity: sha512-Rq4vbHnYkK5fws5NF7MYTU68FPRE1ajX7heQ/8QXXWqNgqqJ/GkmmyxIzUnf2Sr/bakf8l54716CcMGHYhMrrQ==}
@@ -269,7 +269,7 @@ snapshots:
   '@esbuild/win32-x64@0.27.4':
     optional: true
 
-  '@nuxtblog/plugin-sdk@0.0.4': {}
+  '@nuxtblog/plugin-sdk@0.1.0': {}
 
   esbuild@0.27.4:
     optionalDependencies:

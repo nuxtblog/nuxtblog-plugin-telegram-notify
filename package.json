@@ -1,6 +1,6 @@
 {
   "name": "nuxtblog-plugin-telegram-notify",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "文章发布后通过 Telegram Bot 推送通知到指定频道或群组",
   "author": "nuxtblog",
   "license": "MIT",
@@ -81,7 +81,7 @@
     ]
   },
   "scripts": {
-    "build": "esbuild src/index.ts --bundle --platform=neutral --format=cjs --main-fields=browser,module,main --target=es2015 --outfile=dist/index.js",
+    "build": "esbuild src/index.ts --bundle --platform=neutral --format=iife --global-name=__plugin --footer:js=\"Object.keys(__plugin).forEach(function(k){this[k]=__plugin[k]})\" --main-fields=browser,module,main --target=es2015 --outfile=dist/index.js",
     "build:watch": "esbuild src/index.ts --bundle --platform=neutral --format=cjs --main-fields=browser,module,main --target=es2015 --outfile=dist/index.js --watch",
     "typecheck": "tsc --noEmit"
   },
