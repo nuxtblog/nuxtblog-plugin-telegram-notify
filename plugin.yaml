@@ -1,0 +1,52 @@
+id: nuxtblog-plugin-telegram-notify
+title: Telegram 通知
+version: 2.0.0
+icon: i-tabler-brand-telegram
+author: nuxtblog
+description: 文章发布/更新时通过 Telegram Bot 推送通知
+license: MIT
+trust_level: official
+type: builtin
+runtime: compiled
+bundled: true
+sdk_version: "1.0.0"
+
+settings:
+  - key: bot_token
+    label: Bot Token
+    type: password
+    required: true
+    placeholder: "123456:ABC-DEF..."
+    group: Telegram
+
+  - key: chat_id
+    label: Chat ID
+    type: string
+    required: true
+    placeholder: "-100xxxxxxxxxx"
+    group: Telegram
+
+  - key: site_url
+    label: 站点 URL
+    type: string
+    placeholder: "https://blog.example.com"
+    group: 通知
+
+  - key: notify_on_update
+    label: 文章更新时也通知
+    type: boolean
+    default: false
+    group: 通知
+
+  - key: template
+    label: 消息模板
+    type: textarea
+    description: "支持 {title} {url} {excerpt} 变量"
+    group: 通知
+
+  - key: parse_mode
+    label: 解析模式
+    type: select
+    default: Markdown
+    options: [Markdown, MarkdownV2, HTML]
+    group: 通知
