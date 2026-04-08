@@ -1,6 +1,6 @@
 id: nuxtblog-plugin-telegram-notify
 title: Telegram 通知
-version: 2.0.0
+version: 2.0.1
 icon: i-tabler-brand-telegram
 author: nuxtblog
 description: 文章发布/更新时通过 Telegram Bot 推送通知
